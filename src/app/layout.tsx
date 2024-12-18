@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const roboto = Roboto({
   subsets: ["vietnamese"],
@@ -20,7 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head></head>
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <Button variant={"default"}>
+          <Link href={"/"}>Home Page</Link>
+        </Button>
+        <div>{children}</div>
+      </body>
     </html>
   );
 }
