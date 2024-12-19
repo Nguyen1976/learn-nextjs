@@ -1,12 +1,11 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Home() {
   return (
     <main className="text-4xl roboto-regular text-center">
-      <Button variant={"default"}>
-        <Link href={"/auth/login"}>Login</Link>
-      </Button>
+      <div className="text-end mr-5">
+        <ModeToggle />
+      </div>
     </main>
   );
 }

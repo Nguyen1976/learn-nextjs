@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const roboto = Roboto({
+const inter = Inter({
   subsets: ["vietnamese"],
-  weight: ["100", "900"],
 });
 
 export const metadata: Metadata = {
@@ -21,12 +19,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head></head>
-      <body className={roboto.className}>
-        <Button variant={"default"}>
-          <Link href={"/"}>Home Page</Link>
-        </Button>
-        <div>{children}</div>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
