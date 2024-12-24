@@ -7,12 +7,12 @@ export default function Header() {
     <div>
       <ul>
         <li>
-          <Link rel="stylesheet" href="/login">
+          <Link href="/login">
             Đăng nhập
           </Link>
         </li>
         <li>
-          <Link rel="stylesheet" href="/register">
+          <Link href="/register">
             Đăng ký
           </Link>
         </li>

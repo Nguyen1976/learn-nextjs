@@ -16,8 +16,10 @@ import {
   RegisterBody,
   RegisterBodyType,
 } from "@/schemaValidations/auth.schema";
+import envConfig from "@/config";
 
 function FormRegister() {
+  
   const form = useForm<RegisterBodyType>({
     resolver: zodResolver(RegisterBody),
     defaultValues: {
@@ -28,9 +30,19 @@ function FormRegister() {
     },
   });
 
-  function onSubmit(values: RegisterBodyType) {
-    console.log(values);
-    console.log(process.env.NEXT_PUBLIC_API_URL);
+  async function onSubmit(values: RegisterBodyType) {
+    const result = await fetch(
+      `${envConfig.NEXT_PUBLIC_API_URL}/auth/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      }
+    ).then((res) => res.json());
+
+    console.log(result);
   }
 
   return (
