@@ -42,7 +42,6 @@ function FormRegister() {
       }
     ).then((res) => res.json());
 
-    console.log(result);
   }
 
   return (
